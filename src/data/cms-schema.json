@@ -1,0 +1,392 @@
+{
+  "collections": {
+    "hero": {
+      "name": "Hero Section",
+      "fields": {
+        "title": {
+          "type": "string",
+          "required": true,
+          "default": "La educación entra en modo juego",
+          "description": "Título principal del hero"
+        },
+        "subtitle": {
+          "type": "text",
+          "required": true,
+          "default": "Gamificación con propósito pedagógico para captar y sostener la atención en el aula",
+          "description": "Subtítulo descriptivo"
+        },
+        "primaryCTA": {
+          "type": "string",
+          "required": true,
+          "default": "Probar demo",
+          "description": "Texto del botón principal"
+        },
+        "secondaryCTA": {
+          "type": "string",
+          "required": true,
+          "default": "Ver cómo funciona",
+          "description": "Texto del botón secundario"
+        },
+        "mascotImage": {
+          "type": "image",
+          "required": true,
+          "description": "Imagen de la mascota Peaky"
+        },
+        "trustIndicator": {
+          "type": "string",
+          "default": "Confiado por más de 500+ docentes",
+          "description": "Indicador de confianza"
+        }
+      }
+    },
+    "statistics": {
+      "name": "Problem Statistics",
+      "fields": {
+        "items": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "fields": {
+              "id": {
+                "type": "string",
+                "required": true
+              },
+              "value": {
+                "type": "string",
+                "required": true,
+                "description": "Valor de la estadística (ej: '8 seg', '67%')"
+              },
+              "label": {
+                "type": "string",
+                "required": true,
+                "description": "Etiqueta descriptiva"
+              },
+              "description": {
+                "type": "text",
+                "required": true,
+                "description": "Descripción detallada"
+              },
+              "source": {
+                "type": "string",
+                "description": "Fuente de la estadística"
+              },
+              "isPositive": {
+                "type": "boolean",
+                "default": false,
+                "description": "Si es una estadística positiva (verde) o negativa (roja)"
+              }
+            }
+          }
+        }
+      }
+    },
+    "gameMechanics": {
+      "name": "Game Mechanics",
+      "fields": {
+        "items": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "fields": {
+              "id": {
+                "type": "string",
+                "required": true
+              },
+              "name": {
+                "type": "string",
+                "required": true,
+                "description": "Nombre de la mecánica"
+              },
+              "description": {
+                "type": "text",
+                "required": true,
+                "description": "Descripción de cómo funciona"
+              },
+              "pedagogicalSkill": {
+                "type": "string",
+                "required": true,
+                "description": "Habilidad pedagógica que refuerza"
+              },
+              "icon": {
+                "type": "string",
+                "required": true,
+                "description": "Nombre del ícono de Lucide React"
+              }
+            }
+          }
+        }
+      }
+    },
+    "features": {
+      "name": "Features",
+      "fields": {
+        "teacherFeatures": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "fields": {
+              "id": {
+                "type": "string",
+                "required": true
+              },
+              "title": {
+                "type": "string",
+                "required": true
+              },
+              "description": {
+                "type": "text",
+                "required": true
+              },
+              "benefits": {
+                "type": "array",
+                "of": {
+                  "type": "string"
+                },
+                "description": "Lista de beneficios"
+              },
+              "icon": {
+                "type": "string",
+                "required": true,
+                "description": "Nombre del ícono de Lucide React"
+              }
+            }
+          }
+        },
+        "studentFeatures": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "fields": {
+              "id": {
+                "type": "string",
+                "required": true
+              },
+              "title": {
+                "type": "string",
+                "required": true
+              },
+              "description": {
+                "type": "text",
+                "required": true
+              },
+              "benefits": {
+                "type": "array",
+                "of": {
+                  "type": "string"
+                },
+                "description": "Lista de beneficios"
+              },
+              "icon": {
+                "type": "string",
+                "required": true,
+                "description": "Nombre del ícono de Lucide React"
+              }
+            }
+          }
+        }
+      }
+    },
+    "testimonials": {
+      "name": "Testimonials",
+      "fields": {
+        "items": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "fields": {
+              "id": {
+                "type": "string",
+                "required": true
+              },
+              "name": {
+                "type": "string",
+                "required": true,
+                "description": "Nombre completo"
+              },
+              "role": {
+                "type": "string",
+                "required": true,
+                "description": "Cargo o posición"
+              },
+              "institution": {
+                "type": "string",
+                "required": true,
+                "description": "Institución educativa"
+              },
+              "content": {
+                "type": "text",
+                "required": true,
+                "description": "Testimonio completo"
+              },
+              "avatar": {
+                "type": "image",
+                "description": "Foto del testimoniante"
+              },
+              "rating": {
+                "type": "number",
+                "min": 1,
+                "max": 5,
+                "default": 5,
+                "description": "Calificación en estrellas"
+              }
+            }
+          }
+        }
+      }
+    },
+    "faqs": {
+      "name": "Frequently Asked Questions",
+      "fields": {
+        "items": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "fields": {
+              "id": {
+                "type": "string",
+                "required": true
+              },
+              "question": {
+                "type": "string",
+                "required": true,
+                "description": "Pregunta"
+              },
+              "answer": {
+                "type": "text",
+                "required": true,
+                "description": "Respuesta detallada"
+              },
+              "category": {
+                "type": "select",
+                "options": ["general", "privacy", "technical", "pricing"],
+                "required": true,
+                "description": "Categoría de la pregunta"
+              }
+            }
+          }
+        }
+      }
+    },
+    "roadmap": {
+      "name": "Product Roadmap",
+      "fields": {
+        "items": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "fields": {
+              "id": {
+                "type": "string",
+                "required": true
+              },
+              "title": {
+                "type": "string",
+                "required": true,
+                "description": "Título de la funcionalidad"
+              },
+              "description": {
+                "type": "text",
+                "required": true,
+                "description": "Descripción detallada"
+              },
+              "quarter": {
+                "type": "string",
+                "required": true,
+                "description": "Trimestre planificado (ej: Q2 2024)"
+              },
+              "status": {
+                "type": "select",
+                "options": ["completed", "in-progress", "planned"],
+                "required": true,
+                "description": "Estado actual"
+              }
+            }
+          }
+        }
+      }
+    },
+    "productShowcase": {
+      "name": "Product Showcase",
+      "fields": {
+        "mockups": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "fields": {
+              "id": {
+                "type": "string",
+                "required": true
+              },
+              "title": {
+                "type": "string",
+                "required": true,
+                "description": "Título del mockup"
+              },
+              "description": {
+                "type": "text",
+                "required": true,
+                "description": "Descripción de la funcionalidad"
+              },
+              "image": {
+                "type": "image",
+                "required": true,
+                "description": "Imagen del mockup"
+              },
+              "features": {
+                "type": "array",
+                "of": {
+                  "type": "string"
+                },
+                "description": "Lista de características destacadas"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "globals": {
+    "siteSettings": {
+      "name": "Site Settings",
+      "fields": {
+        "siteName": {
+          "type": "string",
+          "default": "PeakMind",
+          "description": "Nombre del sitio"
+        },
+        "siteDescription": {
+          "type": "text",
+          "default": "Plataforma de gamificación educativa",
+          "description": "Descripción del sitio"
+        },
+        "contactEmail": {
+          "type": "email",
+          "default": "hola@peakmind.com",
+          "description": "Email de contacto"
+        },
+        "contactPhone": {
+          "type": "string",
+          "default": "+54 11 1234-5678",
+          "description": "Teléfono de contacto"
+        },
+        "socialLinks": {
+          "type": "object",
+          "fields": {
+            "twitter": {
+              "type": "url",
+              "description": "URL de Twitter"
+            },
+            "linkedin": {
+              "type": "url",
+              "description": "URL de LinkedIn"
+            },
+            "youtube": {
+              "type": "url",
+              "description": "URL de YouTube"
+            }
+          }
+        }
+      }
+    }
+  }
+}
