@@ -110,7 +110,7 @@ export const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -top-4 -right-1 bg-white-400 rounded-full p-3 shadow-lg"
+                className="absolute -top-4 -right-1 bg-[#FAF6F5]-400 rounded-full p-3 shadow-lg"
               >
                 <img src="/assets/Heart.png" alt="Heart Icon" className="w-10.2 h-10 text-white" />
               </motion.div>
@@ -118,7 +118,7 @@ export const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -bottom-4 -left-0 bg-white-400 rounded-full p-3 shadow-lg"
+                className="absolute -bottom-4 -left-0 bg-[#FAF6F5]-400 rounded-full p-3 shadow-lg"
               >
                 <img src="/assets/Flame.png" alt="Streak Icon" className="w-9.5 h-10 text-white" />
               </motion.div>
