@@ -25,7 +25,7 @@ export const Hero: React.FC = () => {
 
   return (
     
-    <section className="font-[feather] relative min-h-screen bg-gradient-to-br from-violet-50 via-white to-indigo-50 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-violet-50 via-white to-indigo-50 overflow-hidden">
       {/* Background Elements */}
 
       <div className="absolute inset-0">
@@ -59,7 +59,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-5xl fontFeather lg:text-7xl text-white leading-tight"
+              className="text-5xl lg:text-7xl text-white leading-tight"
             >
               La educación entra en{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#]-600 to-indigo-600">

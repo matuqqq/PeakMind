@@ -308,13 +308,6 @@ export const ProductShowcase: React.FC = () => {
                   loading="lazy"
                 />
               </div>
-              <button
-                className="absolute bottom-4 left-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur border border-gray-200 shadow-sm text-gray-900 hover:bg-white transition"
-                aria-label="Ver demo"
-              >
-                <Play className="w-4 h-4" />
-                Ver demo
-              </button>
             </div>
 
             {/* Details */}

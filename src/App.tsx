@@ -11,10 +11,11 @@ import { Roadmap } from './components/sections/Roadmap';
 import { Footer } from './components/sections/Footer';
 import { StickyNavigation } from './components/navigation/StickyNavigation';
 import { StickyCTA } from './components/ui/StickyCTA';
+import '../assets/fonts/index.css';
 
 function App() {
   return (
-    <div className="min-h-screen font-[feather] bg-white">
+    <div className="min-h-screen font-featherBold bg-white">
       <StickyNavigation />
       <main>
         <Hero />
