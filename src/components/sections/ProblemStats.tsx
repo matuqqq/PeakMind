@@ -38,7 +38,7 @@ export const ProblemStats: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl font-featherBold lg:text-5xl font-bold text-gray-900 mb-6">
             El problema es real y{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">
               urgente

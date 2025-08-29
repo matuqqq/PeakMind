@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Play, ArrowRight, Sparkles, ArrowDown } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
-import '../../assets/fonts/fonts.css'; // Si usas un archivo CSS para la fuente
+import './../../assets/fonts/index.css'; // Si usas un archivo CSS para la fuente
 
 export const Hero: React.FC = () => {
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
@@ -24,7 +24,8 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="font-featherBold relative min-h-screen bg-gradient-to-br from-violet-50 via-white to-indigo-50 overflow-hidden">
+    
+    <section className="font-[feather] relative min-h-screen bg-gradient-to-br from-violet-50 via-white to-indigo-50 overflow-hidden">
       {/* Background Elements */}
 
       <div className="absolute inset-0">
@@ -49,7 +50,7 @@ export const Hero: React.FC = () => {
             >
               <Badge variant="primary" className="mb-6">
                 <img src="/assets/Student.png" alt="Student Icon" className="w-8 h-8 mr-2" />
-                <p className="text-sm text-black border-white-600 text-6xl font-featherBold">Gamificación Educativa</p>
+                <p className="text-sm text-black border-white-600 text-6xl">Gamificación Educativa</p>
               </Badge>
             </motion.div>
 
@@ -58,7 +59,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-5xl lg:text-7xl text-white leading-tight"
+              className="text-5xl fontFeather lg:text-7xl text-white leading-tight"
             >
               La educación entra en{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#]-600 to-indigo-600">
@@ -91,7 +92,7 @@ export const Hero: React.FC = () => {
                 icon={ArrowRight}
                 iconPosition="right"
               >
-                <p className="text-sm text-white">Ver cómo funciona</p>
+                <p className="text-sm font-featherBold text-white">Ver cómo funciona</p>
               </Button>
             </motion.div>
 
