@@ -113,14 +113,14 @@ export const GameMechanics: React.FC = () => {
               ¿Quieres ver las mecánicas en acción?
             </h3>
             <p className="text-xl mb-8 opacity-90">
-              Prueba nuestro demo interactivo y experimenta cómo cada minijuego refuerza el aprendizaje
+              Prueba nuestra app y experimenta cómo cada minijuego refuerza el aprendizaje
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-white text-violet-600 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-shadow"
             >
-              Probar demo interactivo
+              Descargar aplicacion en tu plataforma preferida
             </motion.button>
           </Card>
         </motion.div>

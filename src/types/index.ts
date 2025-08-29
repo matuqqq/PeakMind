@@ -20,7 +20,7 @@ export interface Testimonial {
   role: string;
   institution: string;
   content: string;
-  avatar: string;
+  avatar?: string;
   rating: number;
 }
 

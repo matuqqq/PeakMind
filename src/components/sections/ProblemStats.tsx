@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TrendingDown, Clock, Users, TrendingUp } from 'lucide-react';
+import { TrendingDown, Clock, Users, TrendingUp, LucideAArrowDown } from 'lucide-react';
 import { Card } from '../ui/Card';
 import { cmsContent } from '../../data/content';
+import { link } from 'node:fs';
+import { ArrowUpRight } from 'lucide-react';
 
 const iconMap = {
   'attention-span': Clock,
@@ -72,9 +74,16 @@ export const ProblemStats: React.FC = () => {
                 {cmsContent.statistics[0].description}
               </p>
               {cmsContent.statistics[0].source && (
-                <p className="text-sm text-gray-500">
-                  Fuente: {cmsContent.statistics[0].source}
-                </p>
+<a 
+  href="https://www.nytimes.com/2016/01/22/opinion/the-eight-second-attention-span.html?_r=3" 
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-1 text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors duration-200"
+>
+  <span>Fuente: {cmsContent.statistics[0].source}</span>
+  <ArrowUpRight className="w-4 h-4" />
+</a>
+
               )}
             </div>
           </Card>
@@ -91,7 +100,7 @@ export const ProblemStats: React.FC = () => {
           {cmsContent.statistics.slice(1).map((stat, index) => {
             const Icon = iconMap[stat.id as keyof typeof iconMap] || TrendingDown;
             const isPositive = stat.id === 'gamification-impact';
-            
+
             return (
               <motion.div key={stat.id} variants={itemVariants}>
                 <Card className={`text-center h-full ${isPositive ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-green-100' : 'bg-gradient-to-br from-red-50 to-orange-50 border-red-100'}`}>
@@ -108,6 +117,17 @@ export const ProblemStats: React.FC = () => {
                     <p className="text-gray-600 text-sm">
                       {stat.description}
                     </p>
+<a
+  href={stat.source}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-1 text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors duration-200"
+>
+  <span>Fuente</span>
+  <ArrowUpRight className="w-4 h-4" />
+</a>
+
+
                   </div>
                 </Card>
               </motion.div>
