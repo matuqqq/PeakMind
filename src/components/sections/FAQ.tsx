@@ -44,7 +44,7 @@ export const FAQ: React.FC = () => {
     : cmsContent.faqs.filter(faq => faq.category === activeCategory);
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50" id='faq'>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
