@@ -1,6 +1,6 @@
 import React, { Suspense, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Play, Loader2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Environment, PresentationControls, Html, useProgress } from '@react-three/drei';
 import * as THREE from 'three';
@@ -12,28 +12,31 @@ const mockups = [
     id: 'dashboard',
     title: 'Dashboard del Docente',
     description: 'Vista completa del progreso de la clase con métricas en tiempo real',
-    image: '/placeholder-dashboard.jpg',
+    image: '/assets/blackBoardView.jpeg',
+    secondaryImage: '/assets/gamesView.jpeg',
     features: ['Analíticas en tiempo real', 'Gestión de estudiantes', 'Configuración de lecciones']
   },
   {
     id: 'game-interface',
     title: 'Interfaz de Juego',
     description: 'Experiencia inmersiva para estudiantes con mecánicas intuitivas',
-    image: '/placeholder-game.jpg',
+    image: '/assets/mainView.jpeg',
+    secondaryImage: '/assets/gameView.jpeg',
     features: ['Controles táctiles', 'Feedback inmediato', 'Progreso visual']
   },
   {
     id: 'analytics',
     title: 'Analíticas Detalladas',
     description: 'Reportes comprensivos sobre el desempeño y áreas de mejora',
-    image: '/placeholder-analytics.jpg',
+    image: '/assets/feedBackView.jpeg',
+    secondaryImage: '/assets/blackBoardView.jpeg',
     features: ['Reportes automáticos', 'Insights pedagógicos', 'Seguimiento longitudinal']
   },
   {
-    id: 'lesson-creator',
+    id: 'lesson-creator', // IA (última): solo un celular
     title: 'Creador de Lecciones IA',
     description: 'Herramienta inteligente que convierte PDFs en experiencias gamificadas',
-    image: '/placeholder-creator.jpg',
+    image: '/assets/gamesView.jpeg',
     features: ['Procesamiento IA', 'Adaptación automática', 'Múltiples formatos']
   }
 ];
@@ -90,7 +93,7 @@ function FallbackModel() {
   );
 }
 
-// GLB model component (no hooks in try/catch; use ErrorBoundary for fallback)
+// GLB model component
 function ModelGLB() {
   const groupRef = useRef<THREE.Group>(null!);
   const [hovered, setHovered] = useState(false);
@@ -114,7 +117,7 @@ function ModelGLB() {
   );
 }
 
-// Error boundary to fallback if GLB fails to load (404, etc.)
+// Error boundary
 class ErrorBoundary extends React.Component<{
   fallback: React.ReactNode;
   children: React.ReactNode;
@@ -126,14 +129,50 @@ class ErrorBoundary extends React.Component<{
   static getDerivedStateFromError() {
     return { hasError: true };
   }
-  componentDidCatch() {
-    // noop: could log
-  }
+  componentDidCatch() { }
   render() {
     if (this.state.hasError) return this.props.fallback;
     return this.props.children as any;
   }
 }
+
+/* ----------------------------- Phone Mockup ----------------------------- */
+const PhoneMockup: React.FC<{
+  src: string;
+  alt?: string;
+  className?: string;
+  // alto total del teléfono, incluido marco
+  outerHeight?: number;
+  screenWidth?: number;
+}> = ({
+  src,
+  alt = 'app screenshot',
+  className = '',
+  outerHeight = 640,   // alto TOTAL consistente
+  screenWidth = 280    // ancho de la pantalla (no del marco)
+}) => {
+    const framePadding = 12; // p-3 ≈ 12px
+    const border = 4;        // border-4 ≈ 4px
+    const chrome = framePadding * 2 + border * 2; // padding + borde superior/inf
+    const screenHeight = outerHeight - chrome;    // alto para la pantalla
+    return (
+      <div
+        className={`relative bg-black rounded-[3rem] p-3 shadow-2xl border-4 border-gray-900 ${className}`}
+        style={{ height: outerHeight }}
+      >
+        {/* notch más proporcionado */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-b-3xl z-10" />
+        {/* pantalla 9:19 dentro del alto disponible */}
+        <div
+          className="rounded-[2rem] overflow-hidden bg-gray-100 mx-auto aspect-[9/19]"
+          style={{ height: screenHeight, width: screenWidth }}
+        >
+          <img src={src} alt={alt} className="w-full h-full object-cover" loading="lazy" />
+        </div>
+        {/* home bar un poco más arriba para no “pegarse” al borde */}
+      </div>
+    );
+  };
 
 /* ----------------------------- 3D Card UI ------------------------------ */
 function Peaky3DCard() {
@@ -145,47 +184,24 @@ function Peaky3DCard() {
       transition={{ duration: 0.6 }}
       className="relative rounded-3xl overflow-hidden shadow-2xl bg-white"
     >
-      {/* 3D Canvas */}
       <div className="aspect-video bg-gradient-to-br from-violet-50 via-indigo-50 to-purple-50 relative">
         <Canvas
           camera={{ position: [0, 0, 5], fov: 50, near: 0.1, far: 1000 }}
           dpr={[1, 2]}
           gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
         >
-          {/* Lights */}
           <ambientLight intensity={0.4} />
-          <directionalLight
-            position={[10, 10, 5]}
-            intensity={1}
-            castShadow
-            shadow-mapSize-width={2048}
-            shadow-mapSize-height={2048}
-          />
+          <directionalLight position={[10, 10, 5]} intensity={1} castShadow shadow-mapSize-width={2048} shadow-mapSize-height={2048} />
           <pointLight position={[-10, -10, -10]} intensity={0.5} color="#8b5cf6" />
           <pointLight position={[10, -10, 10]} intensity={0.5} color="#3b82f6" />
-
-          {/* Env reflections */}
           <Environment preset="studio" />
-
-          {/* Controls & Model */}
-          <PresentationControls
-            enabled
-            global={false}
-            cursor
-            snap={false}
-            speed={1}
-            zoom={1}
-            rotation={[0, 0, 0]}
-            polar={[-Math.PI / 3, Math.PI / 3]}
-            azimuth={[-Math.PI / 1.4, Math.PI / 1.4]}
-          >
+          <PresentationControls enabled global={false} cursor snap={false} speed={1} zoom={1} rotation={[0, 0, 0]} polar={[-Math.PI / 3, Math.PI / 3]} azimuth={[-Math.PI / 1.4, Math.PI / 1.4]}>
             <Suspense fallback={<Loader />}>
               <ErrorBoundary fallback={<FallbackModel />}>
                 <ModelGLB />
               </ErrorBoundary>
             </Suspense>
           </PresentationControls>
-
           <OrbitControls
             enablePan={false}
             enableZoom
@@ -197,10 +213,7 @@ function Peaky3DCard() {
           />
         </Canvas>
 
-        {/* Gradient overlay for readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-
-        {/* Instructions */}
         <div className="absolute bottom-4 left-4 right-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -213,8 +226,6 @@ function Peaky3DCard() {
             </p>
           </motion.div>
         </div>
-
-        {/* Perf dot */}
         <div className="absolute top-4 right-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -225,7 +236,6 @@ function Peaky3DCard() {
           />
         </div>
       </div>
-
     </motion.div>
   );
 }
@@ -262,7 +272,6 @@ export const ProductShowcase: React.FC = () => {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">
               estudiar.
             </span>
-            
           </p>
         </motion.div>
 
@@ -298,26 +307,46 @@ export const ProductShowcase: React.FC = () => {
             transition={{ duration: 0.35 }}
             className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch"
           >
-            {/* Image / mockup */}
-            <div className="relative rounded-2xl overflow-hidden border border-gray-200 bg-white">
-              <div className="aspect-video bg-gray-100">
-                {/* Reemplazá por tu componente de imagen optimizada si tenés */}
-                <img
-                  src={active.image}
-                  alt={active.title}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
+            <div className="flex items-center justify-center lg:justify-start h-full">
+              {active.id !== 'lesson-creator' ? (
+                <div className="flex flex-row items-end gap-8">
+                  <PhoneMockup
+                    src={active.image}
+                    alt={`${active.title} - A`}
+                    className="shrink-0"
+                    outerHeight={640}
+                    screenWidth={280}
+                  />
+                  <PhoneMockup
+                    src={(active as any).secondaryImage ?? active.image}
+                    alt={`${active.title} - B`}
+                    className="shrink-0"
+                    outerHeight={640}
+                    screenWidth={280}
+                  />
+                </div>
+              ) : (
+                <div className="flex items-center justify-center w-full h-full">
+                  <PhoneMockup
+                    src={active.image}
+                    alt={`${active.title}`}
+                    className="shrink-0"
+                    outerHeight={640}
+                    screenWidth={280}
+                  />
+                </div>
+              )}
             </div>
 
+
+
             {/* Details */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 lg:p-8 flex flex-col">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 ml-12 lg:p-8 flex flex-col">
               <h4 className="text-2xl font-bold text-gray-900">{active.title}</h4>
               <p className="mt-2 text-gray-600">{active.description}</p>
 
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {active.features.map((f) => (
+                {active.features.map((f: string) => (
                   <div
                     key={f}
                     className="flex items-center gap-2 p-3 rounded-xl border border-gray-200 bg-gray-50"
@@ -334,9 +363,8 @@ export const ProductShowcase: React.FC = () => {
                   <button
                     key={m.id}
                     onClick={() => goToSlide(i)}
-                    className={`h-2.5 rounded-full transition-all ${
-                      i === currentSlide ? 'w-6 bg-indigo-600' : 'w-2.5 bg-gray-300 hover:bg-gray-400'
-                    }`}
+                    className={`h-2.5 rounded-full transition-all ${i === currentSlide ? 'w-6 bg-indigo-600' : 'w-2.5 bg-gray-300 hover:bg-gray-400'
+                      }`}
                     aria-label={`Ir a ${m.title}`}
                   />
                 ))}
