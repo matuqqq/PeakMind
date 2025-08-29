@@ -50,21 +50,14 @@ export const StickyCTA: React.FC = () => {
                 <Button
                   variant="outline"
                   size="sm"
-                  icon={MessageCircle}
-                  className="hidden sm:flex"
+                  className="hidden sm:flex group"
                 >
-                  Hablar con nosotros
-                </Button>
-                <Button
-                  variant="primary"
-                  size="sm"
-                  icon={Play}
-                >
-                  Probar demo
+                  <MessageCircle className="w-4 h-4 text-gray-600 group-hover:text-white" />
+                  <p className="font-featherBold text-gray-900 group-hover:text-white">Hablar con nosotros</p>
                 </Button>
                 <button
                   onClick={handleDismiss}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="p-2 text-gray-600  rounded-full hover:bg-gray-100 transition-colors"
                 >
                   <X className="w-4 h-4 text-gray-400" />
                 </button>
