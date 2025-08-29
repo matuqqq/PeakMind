@@ -93,7 +93,7 @@ function FallbackModel() {
 function ModelGLB() {
   const groupRef = useRef<THREE.Group>(null!);
   const [hovered, setHovered] = useState(false);
-  const gltf = useGLTF('/Peaky3D.glb', true); // Suspense + cache
+  const gltf = useGLTF('/public/assets/models/Peaky3D.glb', true); // Suspense + cache
 
   useFrame((state) => {
     if (groupRef.current) {
@@ -356,4 +356,4 @@ export const ProductShowcase: React.FC = () => {
 };
 
 // Opcional: precarga del GLB si existe
-useGLTF.preload('/Peaky3D.glb');
+useGLTF.preload('/public/assets/models/Peaky3D.glb');
