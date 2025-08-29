@@ -65,7 +65,8 @@ export const StickyNavigation: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="md:hidden rounded-lg hover:bg-gray-100 transition-colors w-auto flex items-center justify-center"
+            style={{ minWidth: 'auto' }}
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6 text-gray-600" />
@@ -80,18 +81,24 @@ export const StickyNavigation: React.FC = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-gray-100"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-white flex flex-col items-center justify-center md:hidden"
           >
-            <div className="px-4 py-6 space-y-4">
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="absolute top-6 right-6 rounded-lg hover:bg-gray-100 transition-colors"
+            >
+              <X className="w-8 h-8 text-gray-600" />
+            </button>
+            <div className="space-y-8">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-2 text-gray-600 hover:text-violet-600 font-medium transition-colors"
+                  className="block text-2xl text-gray-700 hover:text-violet-600 font-semibold transition-colors text-center"
                 >
                   {item.label}
                 </a>
