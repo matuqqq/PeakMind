@@ -28,21 +28,32 @@ export const StickyNavigation: React.FC = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100' 
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100'
+        : 'bg-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center gap-3"
-          >
-            <img src='/assets/titleLogo.png' alt="Logo" className="w-30 h-20" />
-          </motion.div>
+
+          {/* Logo */}
+          <div className="flex items-center">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center"
+            >
+              <img
+                src="/assets/titleLogo.png"
+                alt="Logo"
+                className={`h-16 w-auto transition-all duration-300 ${isScrolled
+                    ? "drop-shadow-md [filter:drop-shadow(0_0_3px_rgba(0,0,0,0.8))]"
+                    : ""
+                  }`}
+              />
+            </motion.div>
+          </div>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -51,11 +62,10 @@ export const StickyNavigation: React.FC = () => {
                 key={item.label}
                 href={item.href}
                 whileHover={{ y: -2 }}
-                className={`font-medium transition-colors text-xl ${
-                  isScrolled
-                    ? 'text-gray-600 hover:text-gray-400'
-                    : 'text-white hover:text-white/60'
-                }`}
+                className={`font-medium transition-colors text-xl ${isScrolled
+                  ? 'text-gray-600 hover:text-gray-400'
+                  : 'text-white hover:text-white/60'
+                  }`}
               >
                 {item.label}
               </motion.a>
