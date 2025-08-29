@@ -268,7 +268,7 @@ export const cmsContent: CMSContent = {
       id: "multilingual",
       title: "Soporte Multiidioma",
       description: "Expansión a inglés, portugués y francés",
-      quarter: "Q1 2025",
+      quarter: "Q1 2026",
       status: "planned"
     },
     {
