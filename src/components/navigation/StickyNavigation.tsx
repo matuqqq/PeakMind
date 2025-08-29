@@ -41,10 +41,7 @@ export const StickyNavigation: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-3"
           >
-            <div className="w-8 h-8 bg-gradient-to-br from-violet-500 to-indigo-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">P</span>
-            </div>
-            <span className="text-xl font-bold text-gray-900">PeakMind</span>
+            <img src='/assets/titleLogo.png' alt="Logo" className="w-30 h-20" />
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -54,21 +51,15 @@ export const StickyNavigation: React.FC = () => {
                 key={item.label}
                 href={item.href}
                 whileHover={{ y: -2 }}
-                className="text-gray-600 hover:text-violet-600 font-medium transition-colors"
+                className={`font-medium transition-colors text-xl ${
+                  isScrolled
+                    ? 'text-gray-600 hover:text-gray-400'
+                    : 'text-white hover:text-white/60'
+                }`}
               >
                 {item.label}
               </motion.a>
             ))}
-          </div>
-
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="sm">
-              Iniciar sesión
-            </Button>
-            <Button variant="primary" size="sm" icon={Play}>
-              Probar demo
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -105,14 +96,6 @@ export const StickyNavigation: React.FC = () => {
                   {item.label}
                 </a>
               ))}
-              <div className="pt-4 space-y-3">
-                <Button variant="outline" className="w-full">
-                  Iniciar sesión
-                </Button>
-                <Button variant="primary" className="w-full" icon={Play}>
-                  Probar demo
-                </Button>
-              </div>
             </div>
           </motion.div>
         )}

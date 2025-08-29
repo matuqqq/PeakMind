@@ -1,17 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'; // <-- Agrega useEffect y useState
 import { motion } from 'framer-motion';
-import { Play, ArrowRight, Sparkles } from 'lucide-react';
+import { Play, ArrowRight, Sparkles, ArrowDown } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import '../../assets/fonts/fonts.css'; // Si usas un archivo CSS para la fuente
 
 export const Hero: React.FC = () => {
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollIndicator(window.scrollY < 100);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleScrollClick = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <section className="font-featherBold relative min-h-screen bg-gradient-to-br from-violet-50 via-white to-indigo-50 overflow-hidden">
       {/* Background Elements */}
 
       <div className="absolute inset-0">
-        <img src="/assets/Fondo.png" alt="Background" className="absolute top-0 left-0 w-full h-full bg-violet-200 mix-blend-multiply" />
+        <img src="/assets/Fondo.png" alt="Background" className="absolute object-cover top-0 left-0 w-full h-full bg-violet-200 mix-blend-multiply" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-20 pb-16">
@@ -85,8 +102,8 @@ export const Hero: React.FC = () => {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="flex items-center gap-6 pt-8"
             >
-              <div className="text-sm text-gray-500">
-                Confiado por más de <span className="text-violet-600">100 docentes</span>
+              <div className="text-sm text-white">
+                Confiado por más de <span className="text-[#C9D104]">100 docentes</span>
               </div>
             </motion.div>
           </motion.div>
@@ -110,7 +127,7 @@ export const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -top-4 -right-1 bg-[#FAF6F5]-400 rounded-full p-3 shadow-lg"
+                className="absolute -top-4 -right-1 bg-white/40 rounded-full p-3 shadow-lg"
               >
                 <img src="/assets/Heart.png" alt="Heart Icon" className="w-10.2 h-10 text-white" />
               </motion.div>
@@ -118,7 +135,7 @@ export const Hero: React.FC = () => {
               <motion.div
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -bottom-4 -left-0 bg-[#FAF6F5]-400 rounded-full p-3 shadow-lg"
+                className="absolute -bottom-4 -left-0 bg-white/40 rounded-full p-3 shadow-lg"
               >
                 <img src="/assets/Flame.png" alt="Streak Icon" className="w-9.5 h-10 text-white" />
               </motion.div>
@@ -128,20 +145,23 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
+      {showScrollIndicator && (
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-violet-300 rounded-full flex justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.8 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+          onClick={handleScrollClick}
         >
-          <div className="w-1 h-3 bg-violet-400 rounded-full mt-2"></div>
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-10 h-10 border-2 border-violet-300 rounded-full flex justify-center"
+          >
+            <ArrowDown className="w-7 h-5 text-violet-300 mt-2" />
+          </motion.div>
         </motion.div>
-      </motion.div>
+      )}
     </section>
   );
 };
