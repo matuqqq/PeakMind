@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Twitter, 
-  Linkedin, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Twitter,
+  Linkedin,
   Youtube,
+  Instagram,
   Heart,
   ExternalLink
 } from 'lucide-react';
@@ -16,37 +17,14 @@ export const Footer: React.FC = () => {
     product: [
       { label: 'Cómo funciona', href: '#how-it-works' },
       { label: 'Mecánicas de juego', href: '#game-mechanics' },
-      { label: 'Analíticas', href: '#analytics' },
-      { label: 'Integraciones', href: '#integrations' },
-      { label: 'Precios', href: '#pricing' }
+      { label: 'Testimonios', href: '#testimonials' },
+      { label: 'Precios', href: '#faq' }
     ],
-    resources: [
-      { label: 'Blog educativo', href: '/blog' },
-      { label: 'Guías pedagógicas', href: '/guides' },
-      { label: 'Casos de estudio', href: '/case-studies' },
-      { label: 'Webinars', href: '/webinars' },
-      { label: 'Centro de ayuda', href: '/help' }
-    ],
-    company: [
-      { label: 'Sobre nosotros', href: '/about' },
-      { label: 'Equipo', href: '/team' },
-      { label: 'Carreras', href: '/careers' },
-      { label: 'Prensa', href: '/press' },
-      { label: 'Contacto', href: '/contact' }
-    ],
-    legal: [
-      { label: 'Privacidad', href: '/privacy' },
-      { label: 'Términos de uso', href: '/terms' },
-      { label: 'Cookies', href: '/cookies' },
-      { label: 'COPPA', href: '/coppa' },
-      { label: 'FERPA', href: '/ferpa' }
-    ]
   };
 
   const socialLinks = [
-    { icon: Twitter, href: 'https://twitter.com/peakmind', label: 'Twitter' },
-    { icon: Linkedin, href: 'https://linkedin.com/company/peakmind', label: 'LinkedIn' },
-    { icon: Youtube, href: 'https://youtube.com/peakmind', label: 'YouTube' }
+    { icon: Instagram, href: 'https://instagram.com/peakmind.dev', label: 'Instagram' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/peakmind-dev', label: 'LinkedIn' }
   ];
 
   return (
@@ -65,27 +43,29 @@ export const Footer: React.FC = () => {
               {/* Logo */}
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-gradient-to-br from-violet-500 to-indigo-500 rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold">P</span>
+                  <span className="text-white font-bold">
+                    <img src="/logo.png" alt="Logo" className="w-10 h-8 p-1" />
+                  </span>
                 </div>
                 <span className="text-2xl font-bold">PeakMind</span>
               </div>
 
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Transformamos la educación a través de la gamificación inteligente, 
+                Transformamos la educación a través de la gamificación inteligente,
                 ayudando a docentes y estudiantes a alcanzar su máximo potencial.
               </p>
 
               {/* Contact Info */}
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 text-gray-300">
+              <div className="flex flex-wrap items-center gap-6 text-gray-300">
+                <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <span className="text-sm">hola@peakmind.com</span>
+                  <span className="text-sm">peakmind.info@gmail.com</span>
                 </div>
-                <div className="flex items-center gap-3 text-gray-300">
+                <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  <span className="text-sm">+54 11 1234-5678</span>
+                  <span className="text-sm">+54 11 2374-1777</span>
                 </div>
-                <div className="flex items-center gap-3 text-gray-300">
+                <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4" />
                   <span className="text-sm">Buenos Aires, Argentina</span>
                 </div>
@@ -99,8 +79,9 @@ export const Footer: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-start-6 mt-12 lg:col-span-1 lg:pr-8"
           >
-            <h3 className="font-bold text-white mb-4">Producto</h3>
+            <h3 className="font-bold text-white mb-4 text-lg">Producto</h3>
             <ul className="space-y-3">
               {footerLinks.product.map((link) => (
                 <li key={link.label}>
@@ -115,98 +96,7 @@ export const Footer: React.FC = () => {
             </ul>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3 className="font-bold text-white mb-4">Recursos</h3>
-            <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors text-sm flex items-center gap-1"
-                  >
-                    {link.label}
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <h3 className="font-bold text-white mb-4">Empresa</h3>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors text-sm"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <h3 className="font-bold text-white mb-4">Legal</h3>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors text-sm"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
         </div>
-
-        {/* Newsletter Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="border-t border-gray-800 pt-8 mb-8"
-        >
-          <div className="max-w-md">
-            <h3 className="font-bold text-white mb-2">
-              Mantente actualizado
-            </h3>
-            <p className="text-gray-300 text-sm mb-4">
-              Recibe las últimas novedades sobre gamificación educativa
-            </p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="tu@email.com"
-                className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-500"
-              />
-              <button className="px-6 py-2 bg-violet-600 hover:bg-violet-700 rounded-lg font-medium transition-colors">
-                Suscribirse
-              </button>
-            </div>
-          </div>
-        </motion.div>
 
         {/* Bottom Section */}
         <motion.div
@@ -217,7 +107,7 @@ export const Footer: React.FC = () => {
           className="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
         >
           <div className="flex items-center gap-2 text-gray-300 text-sm">
-            <span>© 2024 PeakMind. Hecho con</span>
+            <span>© 2025 PeakMind. Hecho con</span>
             <Heart className="w-4 h-4 text-red-500 fill-current" />
             <span>para la educación.</span>
           </div>

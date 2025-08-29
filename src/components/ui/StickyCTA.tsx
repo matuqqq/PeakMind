@@ -42,7 +42,7 @@ export const StickyCTA: React.FC = () => {
                   ¿Listo para transformar tu aula?
                 </h3>
                 <p className="text-sm text-gray-600">
-                  Únete a más de 500 docentes que ya usan PeakMind
+                  Únete a más de 100 docentes que ya usan PeakMind
                 </p>
               </div>
               
