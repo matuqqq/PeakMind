@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, Play, Loader2 } from 'lucide-react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Environment, PresentationControls, Html, useProgress } from '@react-three/drei';
 import * as THREE from 'three';
+import peakyUrl from '../../assets/models/peaky3D.glb?url';
 
 /* ----------------------------- Mockups data ----------------------------- */
 const mockups = [
@@ -93,7 +94,7 @@ function FallbackModel() {
 function ModelGLB() {
   const groupRef = useRef<THREE.Group>(null!);
   const [hovered, setHovered] = useState(false);
-  const gltf = useGLTF('/public/assets/models/Peaky3D.glb', true); // Suspense + cache
+  const gltf = useGLTF(peakyUrl, true); // Suspense + cache
 
   useFrame((state) => {
     if (groupRef.current) {
@@ -349,4 +350,4 @@ export const ProductShowcase: React.FC = () => {
 };
 
 // Opcional: precarga del GLB si existe
-useGLTF.preload('/public/assets/models/Peaky3D.glb');
+useGLTF.preload(peakyUrl);

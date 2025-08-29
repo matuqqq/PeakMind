@@ -5,4 +5,5 @@ export default defineConfig({
   plugins: [react()],
   base: '/', // Netlify = raíz
   optimizeDeps: { exclude: ['lucide-react'] },
+  
 })
