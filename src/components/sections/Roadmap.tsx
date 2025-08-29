@@ -140,7 +140,7 @@ export const Roadmap: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-white text-violet-600 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-shadow"
               >
-                Únete al beta
+                Únete Ya
               </motion.button>
 
             </div>
