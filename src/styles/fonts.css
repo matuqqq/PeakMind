@@ -1,13 +1,11 @@
-/* Font loading with display swap for performance */
 @font-face {
-  font-family: 'FeatherBold';
-  src: url('/fonts/FeatherBold.ttf') format('truetype');
-  font-weight: bold;
+  font-family: 'featherBold';
+  src: url('./FeatherBold.ttf') format('truetype');
+  font-weight: normal;
   font-style: normal;
-  font-display: swap;
+
 }
 
-/* Fallback font stack */
-body {
-  font-family: 'FeatherBold', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+.font-featherBold {
+  font-family: 'featherBold', sans-serif !important;
 }
