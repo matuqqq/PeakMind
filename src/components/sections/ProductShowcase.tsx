@@ -67,7 +67,10 @@ export const ProductShowcase: React.FC = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          
+            Nuestro Perezoso que representa al alumno que nunca tiene ganas de     {' '}       
+             <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">
+              estudiar
+            </span>
           </p>
         </motion.div>
 
@@ -158,11 +161,10 @@ export const ProductShowcase: React.FC = () => {
               <motion.button
                 key={mockup.id}
                 onClick={() => goToSlide(index)}
-                className={`relative overflow-hidden rounded-xl transition-all duration-300 ${
-                  currentSlide === index
+                className={`relative overflow-hidden rounded-xl transition-all duration-300 ${currentSlide === index
                     ? 'ring-4 ring-violet-500 shadow-lg'
                     : 'hover:shadow-md'
-                }`}
+                  }`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -187,9 +189,8 @@ export const ProductShowcase: React.FC = () => {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  currentSlide === index ? 'bg-violet-600' : 'bg-gray-300'
-                }`}
+                className={`w-3 h-3 rounded-full transition-colors ${currentSlide === index ? 'bg-violet-600' : 'bg-gray-300'
+                  }`}
               />
             ))}
           </div>
