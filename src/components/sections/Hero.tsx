@@ -138,7 +138,7 @@ export const Hero: React.FC = () => {
                 transition={{ duration: 4, repeat: Infinity }}
                 className="absolute -bottom-4 -left-0 bg-white/40 rounded-full p-3 shadow-lg w-16 h-16 flex items-center justify-center"
               >
-                <img src="/assets/Flame.png" alt="Streak Icon" className="w-10 h-10 text-white" />
+                <img src="/assets/Flame.png" alt="Streak Icon" className="w-8 h-10 text-white" />
               </motion.div>
             </div>
           </motion.div>
