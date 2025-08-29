@@ -40,7 +40,7 @@ export const GameMechanics: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-violet-50 via-white to-indigo-50">
+    <section className="py-20 bg-gradient-to-br from-violet-50 via-white to-indigo-50" id='game-mechanics'>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div

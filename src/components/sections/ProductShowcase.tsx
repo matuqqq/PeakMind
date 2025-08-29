@@ -50,7 +50,7 @@ export const ProductShowcase: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-white" id='product'>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -61,13 +61,13 @@ export const ProductShowcase: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Conoce{' '}
+            Conoce a{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">
-              PeakMind
+              Peaky
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explora las interfaces y funcionalidades que están transformando la educación
+          
           </p>
         </motion.div>
 
