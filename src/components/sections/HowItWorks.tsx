@@ -10,23 +10,23 @@ const steps = [
     title: 'Crear aula',
     description: 'Configura tu clase en minutos. Agrega estudiantes, define objetivos y personaliza la experiencia.',
     icon: Upload,
-    benefits: ['Setup en 5 minutos', 'Importación masiva', 'Configuración flexible'],
+    benefits: ['Setup en 5 minutos','Configuración flexible'],
     color: 'from-blue-500 to-cyan-500'
   },
   {
     id: 2,
     title: 'Diseñar lección gamificada',
-    description: 'Sube un PDF y nuestra IA genera automáticamente minijuegos y mecánicas adaptadas al contenido.',
+    description: 'Sube un PDF y nuestra IA genera automáticamente minijuegos adaptados al contenido.',
     icon: Wand2,
-    benefits: ['IA generativa', 'Adaptación automática', 'Múltiples mecánicas'],
+    benefits: ['IA generativa', 'Adaptación automática'],
     color: 'from-violet-500 to-purple-500'
   },
   {
     id: 3,
     title: 'Medir progreso',
-    description: 'Obtén analíticas detalladas sobre atención, participación y áreas de mejora de cada estudiante.',
+    description: 'Obtén analíticas sobre atención, participación y áreas de mejora de cada estudiante.',
     icon: BarChart3,
-    benefits: ['Métricas en tiempo real', 'Reportes automáticos', 'Insights pedagógicos'],
+    benefits: ['Métricas', 'Insights pedagógicos'],
     color: 'from-green-500 to-emerald-500'
   }
 ];
@@ -101,7 +101,7 @@ export const HowItWorks: React.FC = () => {
                 </p>
 
                 {/* Benefits */}
-                <div className="space-y-2">
+                <div className="space-y-2 space-x-1">
                   {step.benefits.map((benefit, benefitIndex) => (
                     <Badge key={benefitIndex} variant="secondary" size="sm">
                       {benefit}
@@ -140,13 +140,6 @@ export const HowItWorks: React.FC = () => {
               className="px-8 py-3 bg-violet-600 text-white rounded-xl font-semibold shadow-lg hover:bg-violet-700 transition-colors"
             >
               Comenzar ahora
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 border-2 border-violet-600 text-violet-600 rounded-xl font-semibold hover:bg-violet-600 hover:text-white transition-colors"
-            >
-              Ver demo en vivo
             </motion.button>
           </div>
         </motion.div>

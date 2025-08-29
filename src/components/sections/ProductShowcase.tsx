@@ -195,39 +195,7 @@ export const ProductShowcase: React.FC = () => {
           </div>
         </div>
 
-        {/* Interactive Demo CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center mt-16"
-        >
-          <Card className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white" padding="lg">
-            <h3 className="text-3xl font-bold mb-4">
-              ¿Quieres probarlo tú mismo?
-            </h3>
-            <p className="text-xl mb-8 opacity-90">
-              Accede a nuestro demo interactivo y experimenta PeakMind en primera persona
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-white text-violet-600 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-shadow"
-              >
-                Demo interactivo
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-white hover:text-violet-600 transition-colors"
-              >
-                Agendar presentación
-              </motion.button>
-            </div>
-          </Card>
-        </motion.div>
+
       </div>
     </section>
   );

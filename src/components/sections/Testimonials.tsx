@@ -74,7 +74,15 @@ export const Testimonials: React.FC = () => {
                 <div className="flex items-center gap-4">
                   {/* Avatar Placeholder */}
                   <div className="w-12 h-12 bg-gradient-to-br from-violet-400 to-indigo-400 rounded-full flex items-center justify-center text-white font-bold">
-                    {testimonial.name.charAt(0)}
+                    {testimonial.avatar ? (
+                      <img
+                        className="w-12 h-12 rounded-full object-cover"
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                      />
+                    ) : (
+                      <span>{testimonial.name.charAt(0)}</span>
+                    )}
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">
@@ -91,64 +99,6 @@ export const Testimonials: React.FC = () => {
               </Card>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-20"
-        >
-          <Card className="bg-gradient-to-r from-violet-50 to-indigo-50 border-violet-100" padding="lg">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                Validación y confianza
-              </h3>
-              <p className="text-gray-600">
-                Números que respaldan la efectividad de PeakMind
-              </p>
-            </div>
-            <div className="grid md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-violet-600 mb-2">500+</div>
-                <div className="text-sm text-gray-600">Docentes activos</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-violet-600 mb-2">15,000+</div>
-                <div className="text-sm text-gray-600">Estudiantes impactados</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-violet-600 mb-2">98%</div>
-                <div className="text-sm text-gray-600">Tasa de satisfacción</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-violet-600 mb-2">4.9/5</div>
-                <div className="text-sm text-gray-600">Calificación promedio</div>
-              </div>
-            </div>
-          </Card>
-        </motion.div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center mt-16"
-        >
-          <p className="text-lg text-gray-600 mb-6">
-            ¿Quieres ser parte de esta transformación educativa?
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-violet-600 text-white rounded-xl font-bold text-lg shadow-lg hover:bg-violet-700 transition-colors"
-          >
-            Únete a PeakMind
-          </motion.button>
         </motion.div>
       </div>
     </section>

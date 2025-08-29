@@ -142,13 +142,7 @@ export const Roadmap: React.FC = () => {
               >
                 Únete al beta
               </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-white hover:text-violet-600 transition-colors"
-              >
-                Solicitar funcionalidad
-              </motion.button>
+
             </div>
           </Card>
         </motion.div>

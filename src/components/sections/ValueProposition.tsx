@@ -206,43 +206,8 @@ export const ValueProposition: React.FC = () => {
           )}
         </AnimatePresence>
 
-        {/* Success Metrics */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-20"
-        >
-          <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-green-100" padding="lg">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                Resultados comprobados
-              </h3>
-              <p className="text-gray-600">
-                Métricas reales de instituciones que ya usan PeakMind
-              </p>
-            </div>
-            <div className="grid md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">+89%</div>
-                <div className="text-sm text-gray-600">Retención de conocimiento</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">-67%</div>
-                <div className="text-sm text-gray-600">Tiempo de preparación</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">+156%</div>
-                <div className="text-sm text-gray-600">Participación activa</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">94%</div>
-                <div className="text-sm text-gray-600">Satisfacción docente</div>
-              </div>
-            </div>
-          </Card>
-        </motion.div>
+
+
       </div>
     </section>
   );
