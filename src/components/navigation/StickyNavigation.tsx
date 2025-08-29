@@ -46,10 +46,11 @@ export const StickyNavigation: React.FC = () => {
               <img
                 src="/assets/titleLogo.png"
                 alt="Logo"
-                className={`h-16 w-auto transition-all duration-300 ${isScrolled
-                    ? "drop-shadow-md [filter:drop-shadow(0_0_3px_rgba(0,0,0,0.8))]"
-                    : ""
-                  }`}
+                className={`h-16 w-auto transition-all duration-300 ${
+                  isScrolled
+                    ? "[filter:drop-shadow(0_0_2px_rgba(0,0,0,0.8))]"
+                    : "[filter:drop-shadow(0_0_2px_rgba(252,245,245,0.5))]"
+                }`}
               />
             </motion.div>
           </div>
