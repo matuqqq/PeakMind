@@ -17,7 +17,7 @@ export const seoData = {
     title: "PeakMind - La educación entra en modo juego",
     description: "Gamificación con propósito pedagógico para captar y sostener la atención en el aula. Únete a más de 500 docentes que ya transformaron sus clases.",
     image: "/og-image.jpg",
-    url: "https://peakmind.com",
+    url: "https://peakmindar.com",
     type: "website",
     siteName: "PeakMind"
   },
@@ -34,7 +34,7 @@ export const seoData = {
     "@type": "SoftwareApplication",
     "name": "PeakMind",
     "description": "Plataforma de gamificación educativa que mejora la atención y motivación en el aula mediante minijuegos y mecánicas de juego con propósito pedagógico",
-    "url": "https://peakmind.com",
+    "url": "https://peakmindar.com",
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "Web, iOS, Android",
     "offers": {
@@ -53,14 +53,14 @@ export const seoData = {
     "author": {
       "@type": "Organization",
       "name": "PeakMind",
-      "url": "https://peakmind.com"
+      "url": "https://peakmindar.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "PeakMind",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://peakmind.com/logo.png"
+        "url": "https://peakmindar.com/logo.png"
       }
     }
   }

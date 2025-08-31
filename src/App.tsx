@@ -14,7 +14,7 @@ import { StickyCTA } from './components/ui/StickyCTA';
 
 function App() {
   return (
-    <div className="min-h-screen font-featherBold bg-white">
+    <div className="min-h-screen font-featherBold">
       <StickyNavigation />
       <main>
         <Hero />
