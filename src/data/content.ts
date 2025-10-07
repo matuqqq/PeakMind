@@ -191,7 +191,7 @@ export const cmsContent: CMSContent = {
       role: "Profesor de Programacion",
       institution: "San Judas Tadeo",
       content: "PeakMind cambió mi aula. Incluso los más distraídos ahora participan jugando y aprendiendo. Además, las propuestas automáticas me ahorran mucho tiempo de planificación",
-      avatar: "/src/assets/images/Profesores/Luc.jpg",
+      avatar: "/assets/Luc.jpg",
       rating: 5
     },
     {
