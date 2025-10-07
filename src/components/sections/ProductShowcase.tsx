@@ -40,7 +40,7 @@ const mockups = [
     id: "lesson-creator",
     title: "Creador de Lecciones IA",
     description: "Herramienta inteligente que convierte PDFs en experiencias gamificadas",
-    image: "/assets/gamesView.jpeg",
+    image: "/assets/iaView.jpg",
     features: ["Procesamiento IA", "Adaptación automática", "Múltiples formatos"],
   },
 ]
