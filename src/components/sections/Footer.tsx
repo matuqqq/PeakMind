@@ -13,13 +13,15 @@ import {
 } from 'lucide-react';
 
 export const Footer: React.FC = () => {
+  // privacy is now a dedicated page at /privacy
+
   const footerLinks = {
-    product: [
-      { label: 'Cómo funciona', href: '#how-it-works' },
-      { label: 'Mecánicas de juego', href: '#game-mechanics' },
-      { label: 'Testimonios', href: '#testimonials' },
-      { label: 'Precios', href: '#faq' }
-    ],
+      product: [
+        { label: 'Cómo funciona', href: '#how-it-works' },
+        { label: 'Mecánicas de juego', href: '#game-mechanics' },
+        { label: 'Testimonios', href: '#testimonials' },
+        { label: 'Politicas de Privacidad', href: '/privacy' }
+      ],
   };
 
   const socialLinks = [
@@ -87,6 +89,7 @@ export const Footer: React.FC = () => {
                 <li key={link.label}>
                   <a
                     href={link.href}
+                    onClick={link && (link as any).onClick ? (link as any).onClick : undefined}
                     className="text-gray-300 hover:text-white transition-colors text-sm"
                   >
                     {link.label}
@@ -95,6 +98,8 @@ export const Footer: React.FC = () => {
               ))}
             </ul>
           </motion.div>
+
+          {/* privacy is a full page at /privacy */}
 
         </div>
 

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, Shield, Smartphone, DollarSign, HelpCircle } from 'lucide-react';
 import { Card } from '../ui/Card';
-import { Badge } from '../ui/Badge';
 import { cmsContent } from '../../data/content';
 
 const categoryIcons = {
