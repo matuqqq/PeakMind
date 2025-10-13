@@ -13,7 +13,8 @@ import { Footer } from './components/sections/Footer';
 import PoliticaDePrivacidad from './components/sections/PrivacyPolitics.tsx';
 import { StickyNavigation } from './components/navigation/StickyNavigation';
 import { StickyCTA } from './components/ui/StickyCTA';
-
+import DeleteAccount from './components/sections/DeleteAccount';
+import DeleteData from './components/sections/DeleteData.tsx';
 function App() {
   return (
     <BrowserRouter>
@@ -37,6 +38,16 @@ function App() {
             <Route path="/privacy" element={
               <div className="py-12">
                 <PoliticaDePrivacidad />
+              </div>
+            } />
+            <Route path="/delete-account" element={
+              <div className="py-12">
+                <DeleteAccount />
+              </div>
+            } /> 
+            <Route path="/delete-data" element={
+              <div className="py-12">
+                <DeleteData />
               </div>
             } />
           </Routes>
